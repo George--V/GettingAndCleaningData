@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Code Book for Getting and Cleaning Data Project.</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Code Book for Getting and Cleaning Data Project.</h1>
+
+<h1></h1>
+
+<h2>The original description of the data set states the following:</h2>
+
+<h3>Data Set Information:</h3>
+
+<p>The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. 
+Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) 
+on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. 
+The experiments have been video-recorded to label the data manually. 
+The obtained dataset has been randomly partitioned into two sets, 
+where 70% of the volunteers was selected for generating the training data and 30% the test data.
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters 
+and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). 
+The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter 
+into body acceleration and gravity. 
+The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. 
+From each window, a vector of features was obtained by calculating variables from the time and frequency domain. </p>
+
+<h3>Description of files and variables:</h3>
+
+<ul>
+<li><p>&#39;features_info.txt&#39;: Shows information about the variables used on the feature vector.</p></li>
+<li><p>&#39;features.txt&#39;: List of all features.</p></li>
+<li><p>&#39;activity_labels.txt&#39;: Links the class labels with their activity name.</p></li>
+<li><p>&#39;train/X_train.txt&#39;: Training set.</p></li>
+<li><p>&#39;train/y_train.txt&#39;: Training labels.</p></li>
+<li><p>&#39;test/X_test.txt&#39;: Test set.</p></li>
+<li><p>&#39;test/y_test.txt&#39;: Test labels.</p></li>
+</ul>
+
+<p>The following files are available for the train and test data. Their descriptions are equivalent. </p>
+
+<ul>
+<li><p>&#39;train/subject_train.txt&#39;: Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. </p></li>
+<li><p>&#39;train/Inertial Signals/total_acc_x_train.txt&#39;: The acceleration signal from the smartphone accelerometer X axis in standard gravity units &#39;g&#39;. 
+Every row shows a 128 element vector. The same description applies for the 
+&#39;total_acc_x_train.txt&#39; and &#39;total_acc_z_train.txt&#39; files for the Y and Z axis. </p></li>
+<li><p>&#39;train/Inertial Signals/body_acc_x_train.txt&#39;: The body acceleration signal obtained by subtracting the gravity from the total acceleration. </p></li>
+<li><p>&#39;train/Inertial Signals/body_gyro_x_train.txt&#39;: The angular velocity vector measured by the gyroscope for each window sample. 
+The units are radians/second. </p></li>
+</ul>
+
+<h1>Project - Data Analysis</h1>
+
+<h2>Objective</h2>
+
+<p>Merge two sets of data, test and training and create a new tidy data set,
+complying with the assignment directives, i.e.:</p>
+
+<p>Create one R script called run_analysis.R that does the following:</p>
+
+<p>1.Merges the training and the test sets to create one data set.</p>
+
+<p>2.Extracts only the measurements on the mean and standard deviation for each measurement. </p>
+
+<p>3.Uses descriptive activity names to name the activities in the data set</p>
+
+<p>4.Appropriately labels the data set with descriptive activity names. </p>
+
+<p>5.Creates a second, independent tidy data set with the average of each variable for each activity and each subject. </p>
+
+<h2>Methodology</h2>
+
+<p>The script run_analysis.R has been created to analyse the data sets available for this research.</p>
+
+<p>The analysis is carried out by merging training and test data which are separated in three files each (subject, activities and features)
+(see section &ldquo;Description of files and variables&rdquo; above)</p>
+
+<p>Also, the activity labels which are given in a separate file are merged to the new set to give descriptive names to each activity and feature.</p>
+
+<p>From the the new merge set of data only the measurements related to mean and standard deviation are extracted.</p>
+
+<p>Then the data is grouped by subject/activity averaging each of the measurements.</p>
+
+<p>Finally, this new tidy data set is persisted as a csv file with the format and description detailed in the next section.</p>
+
+<h2>Output Data</h2>
+
+<p>Column position, names and descriptions.</p>
+
+<ul>
+<li>New labels:</li>
+</ul>
+
+<p>1 &ldquo;Subject&rdquo; = Identifier of the subject being measured</p>
+
+<p>2 &ldquo;Activity_Id&rdquo; = Activity Code</p>
+
+<p>3 &ldquo;Activity_Name&rdquo; = Corresponding Activity Description</p>
+
+<ul>
+<li>Measurements (see section &ldquo;Description of files and variables&rdquo;) :</li>
+</ul>
+
+<p>4 &ldquo;tBodyAcc-mean()-X&rdquo;</p>
+
+<p>5 &ldquo;tBodyAcc-mean()-Y&rdquo;</p>
+
+<p>6 &ldquo;tBodyAcc-mean()-Z&rdquo;</p>
+
+<p>7 &ldquo;tBodyAcc-std()-X&rdquo;</p>
+
+<p>8 &ldquo;tBodyAcc-std()-Y&rdquo;</p>
+
+<p>9 &ldquo;tBodyAcc-std()-Z&rdquo;</p>
+
+<p>10 &ldquo;tGravityAcc-mean()-X&rdquo;</p>
+
+<p>11 &ldquo;tGravityAcc-mean()-Y&rdquo;</p>
+
+<p>12 &ldquo;tGravityAcc-mean()-Z&rdquo;</p>
+
+<p>13 &ldquo;tGravityAcc-std()-X&rdquo;</p>
+
+<p>14 &ldquo;tGravityAcc-std()-Y&rdquo;</p>
+
+<p>15 &ldquo;tGravityAcc-std()-Z&rdquo;</p>
+
+<p>16 &ldquo;tBodyAccJerk-mean()-X&rdquo;</p>
+
+<p>17 &ldquo;tBodyAccJerk-mean()-Y&rdquo;</p>
+
+<p>18 &ldquo;tBodyAccJerk-mean()-Z&rdquo;</p>
+
+<p>19 &ldquo;tBodyAccJerk-std()-X&rdquo;</p>
+
+<p>20 &ldquo;tBodyAccJerk-std()-Y&rdquo;</p>
+
+<p>21 &ldquo;tBodyAccJerk-std()-Z&rdquo;</p>
+
+<p>22 &ldquo;tBodyGyro-mean()-X&rdquo;</p>
+
+<p>23 &ldquo;tBodyGyro-mean()-Y&rdquo;</p>
+
+<p>24 &ldquo;tBodyGyro-mean()-Z&rdquo;</p>
+
+<p>25 &ldquo;tBodyGyro-std()-X&rdquo;</p>
+
+<p>26 &ldquo;tBodyGyro-std()-Y&rdquo;</p>
+
+<p>27 &ldquo;tBodyGyro-std()-Z&rdquo;</p>
+
+<p>28 &ldquo;tBodyGyroJerk-mean()-X&rdquo;</p>
+
+<p>29 &ldquo;tBodyGyroJerk-mean()-Y&rdquo;</p>
+
+<p>30 &ldquo;tBodyGyroJerk-mean()-Z&rdquo;</p>
+
+<p>31 &ldquo;tBodyGyroJerk-std()-X&rdquo;</p>
+
+<p>32 &ldquo;tBodyGyroJerk-std()-Y&rdquo;</p>
+
+<p>33 &ldquo;tBodyGyroJerk-std()-Z&rdquo;</p>
+
+<p>34 &ldquo;tBodyAccMag-mean()&rdquo;</p>
+
+<p>35 &ldquo;tBodyAccMag-std()&rdquo;</p>
+
+<p>36 &ldquo;tGravityAccMag-mean()&rdquo;</p>
+
+<p>37 &ldquo;tGravityAccMag-std()&rdquo;</p>
+
+<p>38 &ldquo;tBodyAccJerkMag-mean()&rdquo;</p>
+
+<p>39 &ldquo;tBodyAccJerkMag-std()&rdquo;</p>
+
+<p>40 &ldquo;tBodyGyroMag-mean()&rdquo;</p>
+
+<p>41 &ldquo;tBodyGyroMag-std()&rdquo;</p>
+
+<p>42 &ldquo;tBodyGyroJerkMag-mean()&rdquo;</p>
+
+<p>43 &ldquo;tBodyGyroJerkMag-std()&rdquo;</p>
+
+<p>44 &ldquo;fBodyAcc-mean()-X&rdquo;</p>
+
+<p>45 &ldquo;fBodyAcc-mean()-Y&rdquo;</p>
+
+<p>46 &ldquo;fBodyAcc-mean()-Z&rdquo;</p>
+
+<p>47 &ldquo;fBodyAcc-std()-X&rdquo;</p>
+
+<p>48 &ldquo;fBodyAcc-std()-Y&rdquo;</p>
+
+<p>49 &ldquo;fBodyAcc-std()-Z&rdquo;</p>
+
+<p>50 &ldquo;fBodyAccJerk-mean()-X&rdquo;</p>
+
+<p>51 &ldquo;fBodyAccJerk-mean()-Y&rdquo;</p>
+
+<p>52 &ldquo;fBodyAccJerk-mean()-Z&rdquo;</p>
+
+<p>53 &ldquo;fBodyAccJerk-std()-X&rdquo;</p>
+
+<p>54 &ldquo;fBodyAccJerk-std()-Y&rdquo;</p>
+
+<p>55 &ldquo;fBodyAccJerk-std()-Z&rdquo;</p>
+
+<p>56 &ldquo;fBodyGyro-mean()-X&rdquo;</p>
+
+<p>57 &ldquo;fBodyGyro-mean()-Y&rdquo;</p>
+
+<p>58 &ldquo;fBodyGyro-mean()-Z&rdquo;</p>
+
+<p>59 &ldquo;fBodyGyro-std()-X&rdquo;</p>
+
+<p>60 &ldquo;fBodyGyro-std()-Y&rdquo;</p>
+
+<p>61 &ldquo;fBodyGyro-std()-Z&rdquo;</p>
+
+<p>62 &ldquo;fBodyAccMag-mean()&rdquo;</p>
+
+<p>63 &ldquo;fBodyAccMag-std()&rdquo;</p>
+
+<p>64 &ldquo;fBodyBodyAccJerkMag-mean()&rdquo;</p>
+
+<p>65 &ldquo;fBodyBodyAccJerkMag-std()&rdquo;</p>
+
+<p>66 &ldquo;fBodyBodyGyroMag-mean()&rdquo;</p>
+
+<p>67 &ldquo;fBodyBodyGyroMag-std()&rdquo;</p>
+
+<p>68 &ldquo;fBodyBodyGyroJerkMag-mean()&rdquo;</p>
+
+<p>69 &ldquo;fBodyBodyGyroJerkMag-std()&rdquo;</p>
+
+<h2>More information and instructions to run the analysis can be found in the README file.</h2>
+
+<p><a href="https://github.com/George--V/GettingAndCleaningData/blob/master/README.md">https://github.com/George&ndash;V/GettingAndCleaningData/blob/master/README.md</a></p>
+
+</body>
+
+</html>
+

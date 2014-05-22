@@ -8,12 +8,13 @@
 ## 5) Creates a second, independent tidy data set with the average of 
 ##      each variable for each activity and each subject. 
 
-# Initialisation: load reshape2 and create a table for label/activity correlation
+# Initialisation: load reshape2 and  tables with
+# code/label correlation for activity and features
 message("Process started...")
 
 library(reshape2)
 actLabel <- read.table("UCI HAR Dataset/activity_labels.txt")
-feature <- read.table("UCI HAR Dataset/features.txt", stringsAsFactors = F)
+featureLabel <- read.table("UCI HAR Dataset/features.txt", stringsAsFactors = F)
 
 # Merge the training and test sets
 message("Merging datasets...")
@@ -37,7 +38,7 @@ featureMerged <- rbind(xTest, xTrain)
 message("Setting column names...")
 
 colnames(actLabel) <- c("Activity_Id", "Activity_Name")
-colnames(feature) <- c("Feature_Position", "Feature_Name")
+colnames(featureLabel) <- c("Feature_Position", "Feature_Name")
 
 colnames(subjMerged) <- c("Subject")
 colnames(activityMerged) <- c("Activity_Id")
@@ -46,7 +47,7 @@ colnames(featureMerged) <- feature$Feature_Name
 # Grep measurement mean and standard deviation
 message("Extracting mean and standard deviations...")
 
-meansAndSd <- grep("mean\\(\\)|std\\(\\)", feature$Feature_Name)
+meansAndSd <- grep("mean\\(\\)|std\\(\\)", featureLabel$Feature_Name)
 meansAndSd <- featureMerged[meansAndSd]
 
 
