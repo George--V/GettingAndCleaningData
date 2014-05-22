@@ -3,7 +3,15 @@ Getting and Cleaning Data Project
 
 # Objective:
 
-Merge two sets of data, test and training and create a new tidy data set.
+Merge two sets of data, test and training and create a new tidy data set,
+complying with the assignment directives, i.e.:
+
+Create one R script called run_analysis.R that does the following. 
+1.Merges the training and the test sets to create one data set.
+2.Extracts only the measurements on the mean and standard deviation for each measurement. 
+3.Uses descriptive activity names to name the activities in the data set
+4.Appropriately labels the data set with descriptive activity names. 
+5.Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
 
 # Input Data:
 
@@ -15,9 +23,9 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 
 # Assumptions:
 
-The input data should be unzipped and placed in the working directory.
+* The input data should be unzipped and placed in the working directory.
 
-The script to process the data requires reshape2 package installed.
+* Package reshape2 should already be installed on R.
 
 # Instructions:
 
@@ -29,4 +37,4 @@ The script to process the data requires reshape2 package installed.
 
 # Output:
 
-After completion of the script, the new file -tidy.csv-, will be available in the working directory
+After completion of the script, the new file -UCI_Dataset_Tidy.csv-, will be available in the working directory
